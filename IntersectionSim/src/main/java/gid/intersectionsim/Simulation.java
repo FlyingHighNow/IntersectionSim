@@ -4,9 +4,20 @@
  */
 package gid.intersectionsim;
 
+
+
+import java.awt.FlowLayout;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.WindowConstants;
+
+
 
 /**
  *
@@ -22,14 +33,23 @@ public class Simulation
     
     public void start()
     {
-        JFrame frame = new JFrame("IntersectionSim");
-        frame.setSize(1280, 720);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-        JPanel pane = new JPanel();
-        frame.setContentPane(pane);
-
-        frame.setVisible(true);
+        try {
+            BufferedImage img = ImageIO.read(new File("src\\main\\java\\gid\\intersectionsim\\crossroads.png"));
+            ImageIcon icon = new ImageIcon(img);
+            
+            JLabel label = new JLabel(icon);
+            JPanel panel = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0));
+            panel.add(label);
+            
+            JFrame frame = new JFrame();
+            frame.add(panel);
+            frame.setSize(1296,759);
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setVisible(true);
+        } 
+        catch (IOException e) 
+        {
+            e.printStackTrace();
+        }
     }
-    
 }
