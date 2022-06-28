@@ -31,8 +31,10 @@ public class Simulation
         
     }
     
-    public void start()
+    public JFrame start()
     {
+        JFrame frame = new JFrame();
+        
         try {
             BufferedImage img = ImageIO.read(new File("src\\main\\java\\gid\\intersectionsim\\crossroads.png"));
             ImageIcon icon = new ImageIcon(img);
@@ -41,7 +43,7 @@ public class Simulation
             JPanel panel = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0));
             panel.add(label);
             
-            JFrame frame = new JFrame();
+      
             frame.add(panel);
             frame.setSize(1296,759);
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -51,5 +53,6 @@ public class Simulation
         {
             e.printStackTrace();
         }
+        return frame;
     }
 }
