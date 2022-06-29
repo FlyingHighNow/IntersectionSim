@@ -7,6 +7,8 @@ package gid.intersectionsim;
 
 
 import java.awt.FlowLayout;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -25,15 +27,17 @@ import javax.swing.JPanel;
  */
 public class Simulation 
 {
+    JFrame frame;
+    Graphics g;
+    Graphics2D g2d;
     
     public Simulation()
     {
-        
+        frame = new JFrame();
     }
     
-    public JFrame start()
+    public void start()
     {
-        JFrame frame = new JFrame();
         
         try {
             BufferedImage img = ImageIO.read(new File("src\\main\\java\\gid\\intersectionsim\\crossroads.png"));
@@ -53,6 +57,12 @@ public class Simulation
         {
             e.printStackTrace();
         }
-        return frame;
+        
+    }
+    
+    public void addCar()
+    {
+        Car myCar = new Car();
+        frame.add(myCar);
     }
 }

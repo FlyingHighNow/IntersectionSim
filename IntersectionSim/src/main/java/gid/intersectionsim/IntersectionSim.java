@@ -17,6 +17,7 @@ public class IntersectionSim {
     {
         Simulation sim = new Simulation();
         sim.start();
+        sim.addCar();
     }
     
 }
